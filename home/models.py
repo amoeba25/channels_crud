@@ -27,10 +27,6 @@ CHOICES = (
     ("Baked", "Baked"),
     ("Out for delivery", "Out for delivery"),
     ("Order recieved", "Order recieved"),
-    
-    
-    
-    
 )
     
 class Order(models.Model):
@@ -77,7 +73,7 @@ class Order(models.Model):
     def __str__(self):
         return self.order_id
 
-
+#signal for when a order is saved
 @receiver(post_save, sender=Order)
 def order_status_handler(sender, instance,created , **kwargs):
     
